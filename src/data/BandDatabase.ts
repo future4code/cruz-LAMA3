@@ -12,8 +12,8 @@ export class BandDatabase extends BaseDatabase {
     responsible: string
   ): Promise<void> {
     try {
-      const banana = 
-      await this.getConnection()
+      console.log({ id, name, music_genre, responsible })
+      const banana = await this.getConnection()
         .insert({
           id,
           name,
@@ -21,7 +21,9 @@ export class BandDatabase extends BaseDatabase {
           responsible
         })
         .into(BandDatabase.TABLE_NAME);
-        console.log(banana)
+      console.log('4')
+
+      console.log(banana)
     } catch (error) {
       throw new Error(error.sqlMessage || error.message);
     }

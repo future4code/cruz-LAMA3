@@ -7,7 +7,6 @@ import { Authenticator } from "../services/Authenticator";
 export class BandController {
     async createBand(req: Request, res: Response) {
         try {
-
             const input: BandInputDTO = {
                 id: req.body.id,
                 music_genre: req.body.music_genre,
@@ -23,10 +22,9 @@ export class BandController {
             if(result.role !== "ADMIN")
             throw new Error("somente ADMIN podem cadastrar bandas")
             
-            
             bandBusiness.createBand(input)
 
-            res.status(200).send({ result });
+            res.status(200).send( 'Banda cadastrada com sucesso' );
 
         } catch (error) {
             res.status(400).send({ error: error.message });

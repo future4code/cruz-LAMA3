@@ -23,9 +23,9 @@ export class UserBusiness {
       throw new CustomError(400, "Password must be more than 6 characters");
     }
 
-    if (!validations.emailIsValid(user.email)) {
-      throw new CustomError(404, "Incorrect email format");
-    }
+    // if (!validations.emailIsValid(user.email)) {
+    //   throw new CustomError(404, "Incorrect email format");
+    // }
 
     const id = idGenerator.generate();
 
