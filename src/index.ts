@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 import { AddressInfo } from "net";
 import express, { Request, Response } from "express";
 import { userRouter } from "./routes/userRouter";
+import { bandRouter } from "./routes/bandRouter";
 import { CustomError } from "./error/BaseError";
 import "express-async-errors"
 
@@ -11,6 +12,7 @@ const app = express();
 app.use(express.json());
 
 app.use("/user", userRouter);
+app.use("/band", bandRouter);
 
 app.use((err: CustomError, req: Request, res: Response) => {
   if (err instanceof CustomError) {
