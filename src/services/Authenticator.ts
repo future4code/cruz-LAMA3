@@ -30,3 +30,5 @@ interface AuthenticationData {
   id: string;
   role?: string;
 }
+
+export default new Authenticator()
