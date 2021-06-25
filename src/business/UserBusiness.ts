@@ -4,7 +4,7 @@ import idGenerator from "../services/IdGenerator";
 import hashManager from "../services/HashManager";
 import authenticator from "../services/Authenticator";
 import { CustomError } from "../error/BaseError";
-import validations  from "./validation/Validations";
+import validations from "./validation/Validations";
 
 export class UserBusiness {
   async createUser(user: UserInputDTO) {
@@ -22,8 +22,10 @@ export class UserBusiness {
     if (user.password.length < 6) {
       throw new CustomError(400, "Password must be more than 6 characters");
     }
-    
-    validations.emailIsValid(user.email)
+
+    if (!validations.emailIsValid(user.email)) {
+      throw new CustomError(404, "Incorrect email format");
+    }
 
     const id = idGenerator.generate();
 
