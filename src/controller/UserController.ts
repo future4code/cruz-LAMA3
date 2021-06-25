@@ -34,6 +34,7 @@ export class UserController {
                 password: req.body.password
             };
 
+            console.log(loginData)
             const userBusiness = new UserBusiness();
             const token = await userBusiness.getUserByEmail(loginData);
 

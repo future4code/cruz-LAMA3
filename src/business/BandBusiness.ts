@@ -9,11 +9,15 @@ import { Authenticator } from "../services/Authenticator";
 export class BandBusiness {
 
     async createBand(band: BandInputDTO) {
+        console.log('3')
 
         const idGenerator = new IdGenerator();
-        const id = idGenerator.generate();
+        const id = await idGenerator.generate();
 
         const bandDatabase = new BandDatabase();
+
+        console.log('33333333')
+        console.log('band: ',band)
         await bandDatabase.createBand(id, band.name,band.music_genre, band.responsible);
 
     }
