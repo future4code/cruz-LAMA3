@@ -3,6 +3,7 @@ import { AddressInfo } from "net";
 import express, { Request, Response } from "express";
 import { userRouter } from "./routes/userRouter";
 import { showRouter } from "./routes/showRouter";
+import { bandRouter } from "./routes/bandRouter";
 import { CustomError } from "./error/BaseError";
 import "express-async-errors"
 dotenv.config();
@@ -12,6 +13,7 @@ app.use(express.json());
 
 app.use("/user", userRouter);
 app.use("/show", showRouter);
+app.use("/band", bandRouter);
 
 app.use((err: CustomError, req: Request, res: Response) => {
   if (err instanceof CustomError) {
