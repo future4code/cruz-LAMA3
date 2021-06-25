@@ -3,11 +3,11 @@ import { UserDatabase } from "../data/UserDatabase";
 import { IdGenerator } from "../services/IdGenerator";
 import { HashManager } from "../services/HashManager";
 import { Authenticator } from "../services/Authenticator";
+import { CustomError } from "../error/BaseError";
 
 export class UserBusiness {
 
     async createUser(user: UserInputDTO) {
-
         const idGenerator = new IdGenerator();
         const id = idGenerator.generate();
 
