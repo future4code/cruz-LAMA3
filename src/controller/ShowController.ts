@@ -11,7 +11,7 @@ export class ShowController {
             const input: ShowInputDTO = {
                 end_time: req.body.end_time,
                 start_time: req.body.start_time,
-                show_id: req.body.show_id,
+                band_id: req.body.band_id,
                 week_day: req.body.week_day
             }
 

@@ -13,12 +13,7 @@ export class ShowBusiness {
 
  
         const showDatabase = new ShowDatabase();
-        await showDatabase.addAShowDataBase(show.end_time, show.show_id, show.start_time, show.week_day);
-
-        // const accessToken = authenticator.generateToken({ id, role: show.role });
-
-        // return accessToken;
-        console.log('funfou o add dentro do showBusiness....')
+        await showDatabase.addAShowDataBase(show.band_id,show.week_day,show.end_time,  show.start_time,id);
         return 'sucess'
     }
 
@@ -27,19 +22,14 @@ export class ShowBusiness {
         const showDatabase = new ShowDatabase();
         const showFromDB = await showDatabase.getShowsByDay(week_day);
 
-        // const hashManager = new HashManager();
-        // const hashCompare = await hashManager.compare(showDa.password, showFromDB.getPassword());
 
         const authenticator = new Authenticator();
         const accessToken = authenticator.generateToken({ id: showFromDB.getId(), role: showFromDB.getRole() });
 
-        // if (!hashCompare) {
-        // throw new Error("Invalid Password!");
-        // }
         console.log('funfou o getShow dentro do showBusiness....')
         console.log('accessToken: ', accessToken)
         console.log('showFromDB: ', showFromDB)
-        return 'shakalaka no SHOWBUSINESSSSS'
+        return 'all bandS : '
         // return accessToken;
     }
 }

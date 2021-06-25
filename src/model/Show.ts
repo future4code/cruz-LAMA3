@@ -5,7 +5,7 @@ export class Show{
     private week_day: string,
     private start_time: string,
     private end_time: string,
-    private show_id: show_id
+    private band_id: band_id
     ){}
 
     getId(){
@@ -24,8 +24,8 @@ export class Show{
         return this.end_time;
     }
 
-    getShow_id(){
-        return this.show_id;
+    getBand_id(){
+        return this.band_id;
     }
 
     setId(id: string){
@@ -44,23 +44,23 @@ export class Show{
         this.end_time = end_time;
     }
 
-    setShow_id(show_id: show_id){
-        this.show_id = show_id;
+    setBand_id(band_id: band_id){
+        this.band_id = band_id;
     }
 
-   static stringTShow_id(input: string): show_id{
+   static stringToBand_id(input: string): band_id{
         switch (input) {
             case "NORMAL":
-              return show_id.NORMAL;
+              return band_id.NORMAL;
             case "ADMIN":
-              return show_id.ADMIN;
+              return band_id.ADMIN;
             default:
-              throw new Error("Invalid user show_id");
+              throw new Error("Invalid user band_id");
           }
     }
 
-    static toshowModel(show: any): Show {
-        return new Show(show.id, show.week_day, show.start_time, show.end_time, show.stringToshow_id(show.show_id));
+    static toShowModel(show: any): Show {
+        return new Show(show.id, show.week_day, show.start_time, show.end_time, show.stringToband_id(show.band_id));
       }
 
 
@@ -70,14 +70,14 @@ export interface ShowInputDTO{
     start_time: string;
     end_time: string;
     week_day: string;
-    show_id: string;
+    band_id: string;
 }
 
 export interface week_dayDTO{
     week_day: string;
 }
 
-export enum show_id{
+export enum band_id{
     NORMAL = "NORMAL",
     ADMIN = "ADMIN"
 }

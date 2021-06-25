@@ -11,16 +11,22 @@ export class ShowDatabase extends BaseDatabase {
     week_day: string,
     start_time: string,
     end_time: string,
+    id:string
   ): Promise<void> {
     try {
+      console.log('f1....')
+
       await this.getConnection()
         .insert({
-         band_id,
+          id,
          week_day,
          start_time,
-         end_time
+         end_time,
+         band_id
         })
         .into(ShowDatabase.TABLE_NAME);
+         console.log('f2....')
+
     } catch (error) {
       throw new Error(error.sqlMessage || error.message);
     }
