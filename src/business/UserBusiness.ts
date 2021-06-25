@@ -18,6 +18,10 @@ export class UserBusiness {
       throw new CustomError(400, "role can only be 'NORMAL' or 'ADMIN'");
     }
 
+    if (user.password.length < 6) {
+      throw new CustomError(400, "Password must be more than 6 characters");
+    }
+
     const id = idGenerator.generate();
 
     const hashPassword = await hashManager.hash(user.password);
